@@ -37,7 +37,6 @@ async function createMovies({
 
 async function getMovies(): Promise<MovieReturn> {
   const movies = await moviesRepository.getMovies()
-
   return movies
 }
 

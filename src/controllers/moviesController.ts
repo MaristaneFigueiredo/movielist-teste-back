@@ -8,8 +8,6 @@ import { MovieEntity } from "../protocols/movies"
 import moviesService from "../services/moviesService"
 import httpStatus from "http-status"
 
-
-
 async function createMovies(req: Request, res: Response, next: NextFunction) {
   const { name, plataformId, genreId } = req.body as MovieEntity
 
@@ -31,7 +29,7 @@ async function getMovies(
 ): Promise<void> {
   try {
     const movies = await moviesService.getMovies()
-    res.send(movies)
+    res.status(httpStatus.OK).send(movies)
   } catch (error) {
     next(error)
   }
