@@ -1,4 +1,5 @@
-import {messageError} from "../protocols/movies.js"
+/* import {messageError} from "../protocols/movies.js" */
+import {messageError} from "../protocols/movies"
 
 function conflitctError(message:string) : messageError {  
     return {      

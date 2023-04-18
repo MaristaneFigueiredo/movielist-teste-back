@@ -1,7 +1,12 @@
 import { Router } from "express";
-import moviesController from "../controllers/moviesController.js"
+/* import moviesController from "../controllers/moviesController.js"
 import validationSchema from "../middlewares/schemaValidationMiddleware.js";
 import {movieSchema} from "../schemas/movieSchema.js"
+ */
+import moviesController from "../controllers/moviesController"
+import validationSchema from "../middlewares/schemaValidationMiddleware";
+import {movieSchema} from "../schemas/movieSchema"
+
 
 const moviesRouter = Router()
 

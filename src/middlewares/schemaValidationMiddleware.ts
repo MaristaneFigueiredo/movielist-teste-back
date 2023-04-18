@@ -1,6 +1,10 @@
-import genericErrors from "../errors/genericErros.js"
- import {Request, Response, NextFunction} from "express"
- //import {messageError} from "../protocols/movies.js"
+/* import genericErrors from "../errors/genericErros.js"
+import {Request, Response, NextFunction} from "express"
+ */ 
+import genericErrors from "../errors/genericErros"
+import {Request, Response, NextFunction} from "express"
+ 
+
 
 function validationSchema(schema){    
     

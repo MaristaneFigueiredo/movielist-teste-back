@@ -1,7 +1,14 @@
-import { Request, Response, NextFunction } from "express"
+/* import { Request, Response, NextFunction } from "express"
 import { MovieEntity } from "../protocols/movies.js"
 import moviesService from "../services/moviesService.js"
 import httpStatus from "http-status"
+ */
+import { Request, Response, NextFunction } from "express"
+import { MovieEntity } from "../protocols/movies"
+import moviesService from "../services/moviesService"
+import httpStatus from "http-status"
+
+
 
 async function createMovies(req: Request, res: Response, next: NextFunction) {
   const { name, plataformId, genreId } = req.body as MovieEntity

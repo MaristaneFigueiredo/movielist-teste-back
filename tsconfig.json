@@ -1,19 +1,24 @@
 {
     // objeto compilerOptions - objeto referente a compilação
     "compilerOptions": {
-        "outDir": "dist", // arquivos js ficarão nesta pasta
-        "esModuleInterop": true, // entender diferentes tipos de importação que existe no js. 
-        //Qdo é "true" garatimos compatibilidade entre várias libs
         "module": "es6", // especificar o padrão do module
+        "moduleResolution": "node", //usa regras similares ao carregador de módulo do Node.js
+        "baseUrl": ".", // estou que a raiz base da minha aplicação é o "movielist-back"
+       // "baseUrl": "src", // na hora de transpilar onde estão meus arquivos ts
+        "outDir": "./dist", // arquivos js ficarão nesta pasta. Os arquivos estão buildados
+        "esModuleInterop": true, // Aqui reconhece o import e export, entender diferentes tipos de importação que existe no js. 
+        //Qdo é "true" garatimos compatibilidade entre várias libs
+        
 
-        "moduleResolution": "Node", //usa regras similares ao carregador de módulo do Node.js
-        //"baseUrl": "." // estou que a raiz base da minha aplicação é o "movielist-back"
+        
+        
         
     },
 
 
     // deixar na escuta a execução a cada alteração
-    //funciona com o nodemon   
+    //funciona com o nodemon
+    //Funciona tbm para o JEST    
     "ts-node": {
         "esm":true
    }

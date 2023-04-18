@@ -1,4 +1,5 @@
-import prisma from "../config/database.js"
+/* import prisma from "../config/database.js" */
+import prisma from "../config/database"
 import { MovieEntity, MovieResponse, MovieReturn } from "../protocols/movies.js"
 
 async function createMovies({

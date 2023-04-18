@@ -1,7 +1,9 @@
-import moviesRepository from "../repositories/moviesRepository.js"
+/* import moviesRepository from "../repositories/moviesRepository.js"
 import { MovieEntity, MovieResponse, MovieReturn } from "../protocols/movies.js"
-import genericErros from "../errors/genericErros.js"
-import { boolean, number } from "joi"
+import genericErros from "../errors/genericErros.js */
+import moviesRepository from "../repositories/moviesRepository"
+import { MovieEntity, MovieResponse, MovieReturn } from "../protocols/movies"
+import genericErros from "../errors/genericErros"
 
 async function movieExistPlataform({
   name,
