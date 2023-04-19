@@ -36,3 +36,18 @@ describe("Testanto as Rotas de Movies", () => {
 /* instalar dotenv-cli
         npm i -D dotenv-cli
 */
+
+/* Testar APIS
+    para testar nossa APi precisamos subir um servidor, para simular nossas requisições p o servidor.  A biblioteca supertest faz essa simulação.
+        npm i -D supertest @types/supertest
+
+    1) Para acontecer a simulação do servidor precisamos de no arquivo onde será feitos os testes IMPORTAR o arquivo onde encontra a configuração do servidor e a porta dele. 
+        Ex.: server.ts
+    2) Importar tbm a lib "supertest" que fará a simulação do servidor
+
+    3) configuração do banco, caso as rotas chegam até o banco
+            import supertest from "supertest"
+            import server from "../src/server"
+            import prisma from "src/config/database"
+
+*/
