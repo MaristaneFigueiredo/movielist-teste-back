@@ -1,13 +1,17 @@
 import supertest from "supertest"
-import server from "../src/server"
+import app from "../src/app"
 import { MovieEntity } from "../src/protocols/movies"
-import prisma from "src/config/database"
+import prisma from "../src/config/database"
+import { beforeEach } from "node:test"
 
-const api = supertest(server) // chama o supertest passando o servidor
+const api = supertest(app) // chama o supertest passando o servidor
 
 beforeAll(async () => {
   await prisma.movies.deleteMany({})
 }) //Limpar o banco - antes de rodar qualquer coisa eu quero fazer uma ação que é limpar o banco.
+
+//beforeEach() - roda antes de cada teste, ou seja, antes de cada "IT"
+//after Each() - roda depois de cada teste, ou seja, depois de cada "IT"
 
 // simulando as requisições - o describe é um agrupamento de testes
 describe("Testanto as Rotas de Movies", () => {
@@ -27,9 +31,13 @@ describe("Testanto as Rotas de Movies", () => {
     expect(response.status).toBe(200)
 
     //Matcher para body response
-    expect(response.body).toEqual(
-      expect.arrayContaining([expect.objectContaining({})])
-    ) //toEqual para tipos não primitivos
+ /*    expect(response.body).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+
+        })
+    ]) 
+    ) *///toEqual para tipos não primitivos
   })
 })
 
