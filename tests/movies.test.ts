@@ -3,47 +3,41 @@ import app from "../src/app"
 import { MovieEntity } from "../src/protocols/movies"
 import prisma from "../src/config/database"
 import { beforeEach } from "node:test"
+import { any } from "joi"
 
 const api = supertest(app) // chama o supertest passando o servidor
 
 beforeAll(async () => {
   await prisma.movies.deleteMany({})
-}) //Limpar o banco - antes de rodar qualquer coisa eu quero fazer uma ação que é limpar o banco.
+})
 
-//beforeEach() - roda antes de cada teste, ou seja, antes de cada "IT"
-//after Each() - roda depois de cada teste, ou seja, depois de cada "IT"
-
-// simulando as requisições - o describe é um agrupamento de testes
-describe("Testanto as Rotas de Movies", () => {
-  //O it é um teste individual
-
-  it("Testando POST :/movies", async () => {
-    // await (await api.post("/movies")).send({ MovieEntity })
-  })
-
-  it("Testando GET:/movies", async () => {
-    // Superteste faz a requisição
-    const response = await api.get("/movies")
-    console.log(response.status)
-    console.log("response.body", response.body)
-
-    //Matcher para status code
-    expect(response.status).toBe(200)
-
-    //Matcher para body response
- /*    expect(response.body).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-
-        })
-    ]) 
-    ) *///toEqual para tipos não primitivos
+describe(" POST :/movies", () => {
+  it("should respond with status 201. There is no token in this project", async () => {
+    const response = await api.post("/movies").send({
+      name: "Filme de teste",
+      plataformId: 1,
+      genreId: 2,
+    })
+    expect(response.status).toBe(201)
+    //  expect(response.body).toEqual({})
   })
 })
 
-/* instalar dotenv-cli
-        npm i -D dotenv-cli
-*/
+describe("GET:/movies", () => {
+  it("Shoul respond with status 401 if no token", async () => {
+    const response = await api.get("/jobs")
+    expect(response.status).toBe(401)
+  })
+  it("Shoul respond with status 401 if invalid token", async () => {
+    const response = await api.get("/jobs").set("Authorization", "Bearer XXXX")
+    expect(response.status).toBe(401)
+  })
+
+  it("Shoul respond with status 200 if valid token", async () => {
+    const response = await api.get("/movies")
+    expect(response.status).toBe(200)
+  })
+})
 
 /* Testar APIS
     para testar nossa APi precisamos subir um servidor, para simular nossas requisições p o servidor.  A biblioteca supertest faz essa simulação.

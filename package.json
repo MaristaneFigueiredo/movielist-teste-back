@@ -26,6 +26,7 @@
   "homepage": "https://github.com/MaristaneFigueiredo/movielist-back#readme",
   "devDependencies": {
     "@prisma/client": "^4.12.0",
+    "@types/cors": "^2.8.13",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.0",
